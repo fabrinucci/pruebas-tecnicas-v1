@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+.App {
+  text-align: center;
+  background-color: #0f1950;
+  color: whitesmoke;
+  padding: 10px;
+  width: 100%;
+}
+
+.fact-container {
+  margin-top: 20px;
+}
+
+.fact-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 90%;
+  padding: 40px 20px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  background-color: #1930af;
+  color: seashell;
+}
+
+.fact-title {
+  font-size: 20px;
+}
+
+.fact-img {
+  border-radius: 20px;
+  object-fit: contain;
+  width: 200px;
+  height: 200px;
+  border-radius: 20px;
+}
+
+@media screen and (min-width: 620px) {
+  .fact-card {
+    flex-direction: row;
+    height: 250px;
+    width: 70%;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .fact-card {
+    height: 250px;
+    width: 50%;
+  }
+}
