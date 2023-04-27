@@ -1,32 +1,9 @@
-import { useEffect, useState } from 'react';
-const CAT_FACT_URL = 'https://catfact.ninja/fact';
-const CAT_IMAGE_URL = 'https://cataas.com';
+import { useCatImage } from './hooks/useCatImage';
+import { useCatFact } from './hooks/useCatFact';
 
 export const App = () => {
-
-  const [fact, setFact] = useState();
-  const [imageUrl, setImageUrl] = useState();
-
-  useEffect(() => {
-    fetch(CAT_FACT_URL)
-      .then(res => res.json())
-      .then(data => {
-        const { fact } = data;
-        setFact(fact);
-      })
-  }, [])
-
-  useEffect(() => {
-    if(!fact) return
-    const firstThreeWords = fact.split(' ', 3).join(' ');
-
-    fetch(`https://cataas.com/cat/says/${firstThreeWords}?size=50&color=red&json=true`)
-    .then(res => res.json())
-    .then(data => {
-      const {url} = data;
-      setImageUrl(url);
-    })
-  }, [fact])
+  const { fact, updateRandomFact } = useCatFact()
+  const { imageUrl } = useCatImage({ fact })
 
   return (
     <main style={{
@@ -35,6 +12,16 @@ export const App = () => {
       placeItems: 'center'
     }}>
       <h1>App</h1>
+      <button 
+        style={{
+          marginBottom:'15px',
+          cursor: 'pointer'
+        }} 
+        onClick={updateRandomFact}
+      >
+        Get new cat
+      </button>
+
       {fact && <p>{fact}</p>}
       {imageUrl && (
         <img
@@ -43,7 +30,7 @@ export const App = () => {
             maxHeight: '320',
             borderRadius: '20px'
           }}
-          src={`${CAT_IMAGE_URL}/${imageUrl}`} 
+          src={imageUrl} 
           alt="Three first words about cats" 
         />
       )}
