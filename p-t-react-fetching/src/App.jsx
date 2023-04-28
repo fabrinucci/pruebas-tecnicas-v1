@@ -2,8 +2,8 @@ import { useCatImage } from './hooks/useCatImage';
 import { useCatFact } from './hooks/useCatFact';
 
 export const App = () => {
-  const { fact, updateRandomFact } = useCatFact()
-  const { imageUrl } = useCatImage({ fact })
+  const { fact, updateRandomFact } = useCatFact();
+  const { imageUrl, imagePath } = useCatImage({ fact });
 
   return (
     <main style={{
@@ -23,15 +23,16 @@ export const App = () => {
       </button>
 
       {fact && <p>{fact}</p>}
+
       {imageUrl && (
-        <img
+        <img 
+          src={imagePath} 
+          alt={`Image extacted using the first rhee words for ${fact}`}
           style={{
             maxWidth: '260px',
             maxHeight: '320',
             borderRadius: '20px'
           }}
-          src={imageUrl} 
-          alt="Three first words about cats" 
         />
       )}
     </main>
