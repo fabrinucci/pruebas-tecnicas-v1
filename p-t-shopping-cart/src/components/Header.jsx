@@ -1,6 +1,6 @@
 import { Filters } from './Filters';
 
-export const Header = ({ setFilters }) => {
+export const Header = () => {
   return (
     <header
       style={{
@@ -10,7 +10,7 @@ export const Header = ({ setFilters }) => {
         padding: '10px 0',
       }}>
       <h2>React Shop </h2>
-      <Filters onChange={setFilters} />
+      <Filters />
     </header>
   );
 };

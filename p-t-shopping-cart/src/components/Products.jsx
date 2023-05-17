@@ -1,6 +1,11 @@
 import { AddToCartIcon } from './Icons';
+import { useFilters } from '../hooks/useFilters';
+import { products as initialProducts } from '../mocks/products.json';
 
-export const Products = ({ products }) => {
+export const Products = () => {
+  const { filterProducts } = useFilters();
+  const filteredProducts = filterProducts(initialProducts);
+
   return (
     <section
       style={{
@@ -16,7 +21,7 @@ export const Products = ({ products }) => {
           listStyle: 'none',
           marginTop: '15px',
         }}>
-        {products?.slice(0, 10).map((item) => (
+        {filteredProducts?.slice(0, 10).map((item) => (
           <li
             style={{
               display: 'flex',
