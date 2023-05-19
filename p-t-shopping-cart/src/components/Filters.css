@@ -1,0 +1,18 @@
+.filters {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 20px;
+  width: 100%;
+}
+
+.minMax {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.category {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

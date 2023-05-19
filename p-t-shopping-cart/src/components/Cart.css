@@ -1,0 +1,79 @@
+.cart {
+  background: #0e0d0d;
+  display: none;
+  padding: 32px;
+  position: fixed;
+  right: 0px;
+  top: 60px;
+  width: 220px;
+  z-index: 100;
+  overflow-y: auto;
+  border-radius: 10px;
+}
+
+.cart p {
+  margin-top: 20px;
+}
+
+.cart img {
+  aspect-ratio: 16/9;
+  width: 100%;
+  margin: 30px 0 8px 0;
+  border-radius: 6px;
+}
+
+.cart li {
+  border-bottom: 1px solid #444;
+  padding-bottom: 16px;
+}
+
+.cart footer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 10px 0;
+}
+
+.cart footer button {
+  padding: 5px 8px;
+}
+
+.cart-button {
+  height: 32px;
+  width: 32px;
+  padding: 4px;
+  position: absolute;
+  right: 16px;
+  top: 12px;
+  cursor: pointer;
+  background: #4898cd;
+  border: none;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  z-index: 9999;
+}
+
+.cart-button:hover {
+  scale: 1.1;
+}
+
+.cart-button ~ input:checked ~ .cart {
+  height: 100%;
+  display: block;
+}
+
+.cart-button.btn-qty,
+.cart-button.btn-clear {
+  position: relative;
+  top: 0;
+  right: 0;
+}
+
+.cart-button.btn-qty {
+  height: 25px;
+  width: 25px;
+}
+
+.cart-button.btn-clear {
+  margin-top: 10px;
+}

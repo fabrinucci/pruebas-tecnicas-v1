@@ -1,16 +1,12 @@
+import { Cart } from './Cart';
 import { Filters } from './Filters';
 
 export const Header = () => {
   return (
-    <header
-      style={{
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        padding: '10px 0',
-      }}>
+    <header>
       <h2>React Shop </h2>
       <Filters />
+      <Cart />
     </header>
   );
 };

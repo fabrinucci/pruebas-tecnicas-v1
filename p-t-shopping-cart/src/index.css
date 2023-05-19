@@ -11,8 +11,61 @@
   box-sizing: border-box;
 }
 
+/* ===== Scrollbar CSS ===== */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #4898cd #1c1c1c;
+}
+
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #1c1c1c;
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #4898cd;
+  border-radius: 10px;
+  border: 2px solid #1c1c1c;
+}
+
 body {
   width: 100%;
   min-width: 320px;
   min-height: 100vh;
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 0;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  margin: 5px auto;
+  width: 20%;
+  height: 40px;
+  transition: all ease 0.3s;
+}
+
+.btn:hover {
+  transform: scale(1.1);
 }
