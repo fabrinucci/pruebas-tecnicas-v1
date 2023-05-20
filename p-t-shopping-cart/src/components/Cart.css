@@ -74,6 +74,7 @@
   width: 25px;
 }
 
-.cart-button.btn-clear {
-  margin-top: 10px;
+.btn-clear-div {
+  margin: 10px 0 40px 0;
+  text-align: center;
 }
