@@ -1,4 +1,4 @@
-import { navigate } from "../components/Link";
+import { Link } from "../components/Link";
 
 export const About = () => {
   return (
@@ -11,7 +11,7 @@ export const About = () => {
         />
         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
       </div>
-      <button onClick={() => navigate("/")}>Go to home</button>
+      <Link to="/">Go to home</Link>
     </section>
   );
 };
