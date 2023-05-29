@@ -1,29 +1,23 @@
-import { useEffect, useState } from "react";
 import { Home } from "./pages/Home";
 import { About } from "./pages/About";
-import { EVENTS } from "./utils/consts";
+import { Router } from "./components/Router";
+import { NotFound } from "./pages/NotFound";
 
 export const App = () => {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
-
-  useEffect(() => {
-    const onLocationChange = () => {
-      setCurrentPath(window.location.pathname);
-    };
-
-    window.addEventListener(EVENTS.PUSH_STATE, onLocationChange);
-    window.addEventListener(EVENTS.POP_STATE, onLocationChange);
-
-    return () => {
-      window.removeEventListener(EVENTS.PUSH_STATE, onLocationChange);
-      window.removeEventListener(EVENTS.POP_STATE, onLocationChange);
-    };
-  }, []);
+  const routes = [
+    {
+      path: "/",
+      Component: Home,
+    },
+    {
+      path: "/about",
+      Component: About,
+    },
+  ];
 
   return (
     <main>
-      {currentPath === "/" && <Home />}
-      {currentPath === "/about" && <About />}
+      <Router routes={routes} defaultComponent={<NotFound />} />
     </main>
   );
 };
