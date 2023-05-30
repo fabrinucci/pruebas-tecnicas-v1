@@ -3,17 +3,10 @@ import { About } from "./pages/About";
 import { Router } from "./components/Router";
 import { NotFound } from "./pages/NotFound";
 import { Search } from "./pages/Search";
+import { Route } from "./components/Route";
 
 export const App = () => {
   const routes = [
-    {
-      path: "/",
-      Component: Home,
-    },
-    {
-      path: "/about",
-      Component: About,
-    },
     {
       path: "/search/:query",
       Component: Search,
@@ -22,7 +15,10 @@ export const App = () => {
 
   return (
     <main>
-      <Router routes={routes} defaultComponent={<NotFound />} />
+      <Router routes={routes} defaultComponent={<NotFound />}>
+        <Route path="/" Component={Home} />
+        <Route path="/about" Component={About} />
+      </Router>
     </main>
   );
 };
