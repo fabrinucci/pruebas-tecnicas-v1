@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "../components/Link";
 
-export const Search = ({ routeParams }) => {
+const Search = ({ routeParams }) => {
   return (
     <div>
       <h1>You have searched "{routeParams.query}"</h1>
@@ -9,3 +9,4 @@ export const Search = ({ routeParams }) => {
     </div>
   );
 };
+export default Search;

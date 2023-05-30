@@ -1,3 +1,5 @@
-export const Route = ({ path, Component }) => {
+const Route = ({ path, Component }) => {
   return null;
 };
+
+export default Route;

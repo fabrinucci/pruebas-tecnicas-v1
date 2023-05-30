@@ -1,6 +1,6 @@
 import { Link } from "../components/Link";
 
-export const Home = () => {
+const Home = () => {
   return (
     <section>
       <h1>Home Page</h1>
@@ -9,3 +9,5 @@ export const Home = () => {
     </section>
   );
 };
+
+export default Home;

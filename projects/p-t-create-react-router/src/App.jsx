@@ -1,24 +1,34 @@
-import { Home } from "./pages/Home";
-import { About } from "./pages/About";
-import { Router } from "./components/Router";
-import { NotFound } from "./pages/NotFound";
-import { Search } from "./pages/Search";
-import { Route } from "./components/Route";
+import { Suspense, lazy } from "react";
+import Router from "./components/Router";
+import Route from "./components/Route";
+import Search from "./pages/Search";
+import NotFound from "./pages/NotFound";
 
-export const App = () => {
-  const routes = [
-    {
-      path: "/search/:query",
-      Component: Search,
-    },
-  ];
+const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import("./pages/About"));
 
+const routes = [
+  {
+    path: "/search/:query",
+    Component: Search,
+  },
+  {
+    path: "/:lang/about",
+    Component: About,
+  },
+];
+
+const App = () => {
   return (
     <main>
-      <Router routes={routes} defaultComponent={<NotFound />}>
-        <Route path="/" Component={Home} />
-        <Route path="/about" Component={About} />
-      </Router>
+      <Suspense fallback={null}>
+        <Router routes={routes} defaultComponent={<NotFound />}>
+          <Route path="/" Component={Home} />
+          <Route path="/about" Component={About} />
+        </Router>
+      </Suspense>
     </main>
   );
 };
+
+export default App;

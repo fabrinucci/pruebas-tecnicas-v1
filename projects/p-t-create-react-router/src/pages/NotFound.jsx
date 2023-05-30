@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "../components/Link";
 
-export const NotFound = () => {
+const NotFound = () => {
   return (
     <main>
       <h1>Something is wrong</h1>
@@ -15,3 +15,5 @@ export const NotFound = () => {
     </main>
   );
 };
+
+export default NotFound;
