@@ -1,11 +1,11 @@
 import { Suspense, lazy } from "react";
 import Router from "./components/Router";
 import Route from "./components/Route";
-import Search from "./pages/Search";
-import NotFound from "./pages/NotFound";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import("./pages/About"));
+const Search = lazy(() => import("./pages/Search"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 
 const routes = [
   {
@@ -22,7 +22,7 @@ const App = () => {
   return (
     <main>
       <Suspense fallback={null}>
-        <Router routes={routes} defaultComponent={<NotFound />}>
+        <Router routes={routes} defaultComponent={NotFound}>
           <Route path="/" Component={Home} />
           <Route path="/about" Component={About} />
         </Router>

@@ -1,5 +1,5 @@
 import React from "react";
-import { EVENTS } from "../utils/consts";
+import { EVENTS } from "../events";
 
 export function navigate(href) {
   window.history.pushState({}, "", href);
@@ -7,7 +7,7 @@ export function navigate(href) {
   window.dispatchEvent(navigationEvent);
 }
 
-export const Link = ({ target, to, ...props }) => {
+const Link = ({ target, to, ...props }) => {
   const handleClick = (e) => {
     const isMainEvent = e.button === 0;
     const isModifiedEvent = e.metaKey || e.altKey || e.shiftKey || e.ctrlKey;
@@ -20,3 +20,5 @@ export const Link = ({ target, to, ...props }) => {
   };
   return <a onClick={handleClick} href={to} target={target} {...props} />;
 };
+
+export default Link;
