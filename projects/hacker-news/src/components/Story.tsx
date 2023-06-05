@@ -9,13 +9,14 @@ import {
   score,
 } from './story.css';
 import { getArticle } from '../services';
+import { StoryLoader } from './StoryLoader';
 
 const Story = (props: { id: number; index: number }) => {
   const { id, index } = props;
   const { data, isLoading } = useSWR(`/story/${id}`, () => getArticle(id));
 
   if (isLoading) {
-    return 'loading';
+    return <StoryLoader />;
   }
 
   const { by, kids, title, url, time } = data!;

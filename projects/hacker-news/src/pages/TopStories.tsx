@@ -11,7 +11,6 @@ const TopStoriesPage = () => {
   return (
     <main className={main}>
       <h1>Top stories</h1>
-      {isLoading && <Loading />}
       <ul>
         {data?.map((id: number, index: number) => (
           <li className={li} key={id}>
@@ -19,7 +18,7 @@ const TopStoriesPage = () => {
           </li>
         ))}
       </ul>
-      <button>Load more</button>
+      {!isLoading && <button>Load more</button>}
     </main>
   );
 };
