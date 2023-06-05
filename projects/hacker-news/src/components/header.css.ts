@@ -5,7 +5,7 @@ export const header = style({
   alignItems: 'center',
   gap: '8px',
   padding: '10px',
-  borderBottom: '1px solid rgba(250,250,250,.2)',
+  borderBottom: '1px solid rgba(0,0,0,.2)',
 });
 
 export const image = style({
@@ -15,7 +15,6 @@ export const image = style({
 });
 
 export const link = style({
-  textDecoration: 'none',
-  color: 'white',
-  fontWeight: 'bold',
+  color: '#242424',
+  fontWeight: '600',
 });
