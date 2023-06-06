@@ -11,6 +11,10 @@ export const storyHeader = style({
   gap: '10px',
 });
 
+export const storyIndex = style({
+  color: '#424242',
+  fontSize: '20px',
+});
 export const storyTitle = style({
   color: '#161616',
   fontSize: '20px',

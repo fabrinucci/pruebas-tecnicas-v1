@@ -14,7 +14,7 @@ export const getTopStories = async (
   return ids;
 };
 
-export const getArticle = async (id: number): Promise<Article> => {
+export const getItemInfo = async (id: number): Promise<Article> => {
   const res = await fetch(`${API}/item/${id}.json`);
   const data = await res.json();
   return data;

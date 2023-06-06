@@ -7,13 +7,14 @@ import {
   storyTitle,
   storyLink,
   score,
+  storyIndex,
 } from './story.css';
-import { getArticle } from '../services';
+import { getItemInfo } from '../services';
 import { StoryLoader } from './StoryLoader';
 
 const Story = (props: { id: number; index: number }) => {
   const { id, index } = props;
-  const { data, isLoading } = useSWR(`/story/${id}`, () => getArticle(id));
+  const { data, isLoading } = useSWR(`/story/${id}`, () => getItemInfo(id));
 
   if (isLoading) {
     return <StoryLoader />;
@@ -30,7 +31,7 @@ const Story = (props: { id: number; index: number }) => {
   return (
     <article className={storyArticle}>
       <header className={storyHeader}>
-        <p>{index + 1}.</p>
+        <p className={storyIndex}>{index + 1}.</p>
         <Link className={storyTitle} href={`/article/${id}`}>
           {title}
         </Link>
