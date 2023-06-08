@@ -1,5 +1,8 @@
 import useSWR from 'swr';
 import { Link } from 'wouter';
+import { StoryLoader } from './StoryLoader';
+import { getItemInfo } from '../services';
+import { getRelativeTime } from '../utils/getRelativeTime';
 import {
   storyArticle,
   storyHeader,
@@ -9,8 +12,6 @@ import {
   score,
   storyIndex,
 } from './story.css';
-import { getItemInfo } from '../services';
-import { StoryLoader } from './StoryLoader';
 
 const Story = (props: { id: number; index: number }) => {
   const { id, index } = props;
@@ -27,6 +28,8 @@ const Story = (props: { id: number; index: number }) => {
   try {
     domain = new URL(url).hostname.replace('www.', '');
   } catch {}
+
+  const timeAgo = getRelativeTime(time);
 
   return (
     <article className={storyArticle}>
@@ -49,7 +52,7 @@ const Story = (props: { id: number; index: number }) => {
           by: {by}
         </Link>
         <Link className={score} to={`/article/${id}`}>
-          6 hours ago
+          {timeAgo}
         </Link>
         <Link className={score} to={`/article/${id}`}>
           {kids?.length} comments

@@ -3,6 +3,7 @@ import { getItemInfo } from '../services';
 import { CommentList } from './CommentList';
 import { commentDetail, commentSummary, commentInfo } from './comment.css';
 import { CommentLoader } from './CommentLoader';
+import { getRelativeTime } from '../utils/getRelativeTime';
 
 export const Comment = (props: { id: number }) => {
   const { id } = props;
@@ -12,7 +13,9 @@ export const Comment = (props: { id: number }) => {
     return <CommentLoader />;
   }
 
-  const { by, text, kids } = data!;
+  const { by, text, kids, time } = data!;
+
+  const timeAgo = getRelativeTime(time);
 
   return (
     <>
@@ -20,7 +23,7 @@ export const Comment = (props: { id: number }) => {
         <summary className={commentSummary}>
           <span className={commentInfo}>{by}</span>
           <span className={commentInfo}>-</span>
-          <span className={commentInfo}>3 hours ago</span>
+          <span className={commentInfo}>{timeAgo}</span>
         </summary>
         <p>{text}</p>
       </details>

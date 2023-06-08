@@ -41,10 +41,3 @@ export const storyFooter = style({
   alignItems: 'center',
   gap: '10px',
 });
-
-export const articleButton = style({
-  height: '40px',
-  width: '100px',
-  border: 'none',
-  borderRadius: '5px',
-});
