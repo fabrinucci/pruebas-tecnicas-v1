@@ -1,3 +1,3 @@
-# Pruebas Tecnicas
+# Simple Projects
 
-Esto es un repositorio donde almacenaré todas las pruebas técnicas que realice.
+This is a repository where I have simple projects
